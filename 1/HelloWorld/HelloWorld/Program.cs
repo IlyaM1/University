@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace MyApp // Note: actual namespace depends on the project name.
+﻿namespace Slide01
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello, World!");
+            var number = 5.5;
+            number += 7;
+            Console.WriteLine(number);
         }
+
     }
 }
