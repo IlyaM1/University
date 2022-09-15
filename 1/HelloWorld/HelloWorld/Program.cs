@@ -1,13 +1,19 @@
-﻿namespace Slide01
+﻿using System;
+
+namespace Slide01
 {
     class Program
     {
+        public static int SelfReverse(int numb){
+            var numbCharArray = numb.ToString().ToCharArray();
+            Array.Reverse(numbCharArray);
+            
+            return int.Parse(new string(numbCharArray));
+        }
+
         public static void Main()
         {
-            Console.WriteLine("Hello, World!");
-            var number = 5.5;
-            number += 7;
-            Console.WriteLine(number);
+            Console.WriteLine(SelfReverse(156));
         }
 
     }
