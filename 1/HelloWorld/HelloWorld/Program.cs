@@ -11,9 +11,14 @@ namespace Slide01
             return int.Parse(new string(numbCharArray));
         }
 
+        public static int FindAngleHourAndMinuteArrow(int hours){
+            var angle = (hours % 12) * 30;
+            return angle <= 180 ? angle : 360 - angle;
+        }
+
         public static void Main()
         {
-            Console.WriteLine(SelfReverse(156));
+            
         }
 
     }
