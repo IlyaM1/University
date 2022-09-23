@@ -1,0 +1,15 @@
+D:\IT\Univ\2\PracticePercents\bin\Debug\net6.0\PracticePercents.exe
+D:\IT\Univ\2\PracticePercents\bin\Debug\net6.0\PracticePercents.deps.json
+D:\IT\Univ\2\PracticePercents\bin\Debug\net6.0\PracticePercents.runtimeconfig.json
+D:\IT\Univ\2\PracticePercents\bin\Debug\net6.0\PracticePercents.dll
+D:\IT\Univ\2\PracticePercents\bin\Debug\net6.0\PracticePercents.pdb
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.csproj.AssemblyReference.cache
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.AssemblyInfoInputs.cache
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.AssemblyInfo.cs
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.csproj.CoreCompileInputs.cache
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.dll
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\refint\PracticePercents.dll
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.pdb
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\PracticePercents.genruntimeconfig.cache
+D:\IT\Univ\2\PracticePercents\obj\Debug\net6.0\ref\PracticePercents.dll
