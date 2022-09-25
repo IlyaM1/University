@@ -8,13 +8,13 @@ namespace Rectangles
         public static bool AreIntersected(Rectangle r1, Rectangle r2)
         {
             // смотрим если первый прямоугольник левее второго
-            bool tooLeft = r1.Left > r2.Left + r2.Width;
+            var tooLeft = r1.Left > r2.Left + r2.Width;
             // смотрим если первый прямоугольник правее второго
-            bool tooRight = r2.Left > r1.Left + r1.Width;
+            var tooRight = r2.Left > r1.Left + r1.Width;
             // смотрим если первый прямоугольник выше второго
-            bool tooHigh = r1.Top > r2.Top + r2.Height;
+            var tooHigh = r1.Top > r2.Top + r2.Height;
             // смотрим если первый прямоугольник ниже второго
-            bool tooLow = r2.Top > r1.Top + r1.Height;
+            var tooLow = r2.Top > r1.Top + r1.Height;
 
             // если ни одно из условий непересечения не сработало, значит они перескаются
             return !(tooLeft || tooRight || tooHigh || tooLow);
@@ -25,8 +25,8 @@ namespace Rectangles
         {
             if (AreIntersected(r1, r2)) // ищем площадь пересечния только если пересекаются
             {
-                int intersectionWidth = SearchIntersection(r1.Left, r1.Right, r2.Left, r2.Right);
-                int intersectionHeight = SearchIntersection(r1.Top, r1.Bottom, r2.Top, r2.Bottom);
+                var intersectionWidth = SearchIntersection(r1.Left, r1.Right, r2.Left, r2.Right);
+                var intersectionHeight = SearchIntersection(r1.Top, r1.Bottom, r2.Top, r2.Bottom);
 
                 return intersectionWidth * intersectionHeight;
             }
@@ -36,8 +36,8 @@ namespace Rectangles
 
         public static int SearchIntersection(int aLeft, int aRight, int bLeft, int bRight)
         {
-            int left = Math.Max(aLeft, bLeft);
-            int right = Math.Min(aRight, bRight);
+            var left = Math.Max(aLeft, bLeft);
+            var right = Math.Min(aRight, bRight);
 
             return Math.Max(right - left, 0);
         }
