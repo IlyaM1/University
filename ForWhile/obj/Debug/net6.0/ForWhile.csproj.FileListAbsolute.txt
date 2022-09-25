@@ -1,0 +1,15 @@
+D:\IT\Univ\ForWhile\bin\Debug\net6.0\ForWhile.exe
+D:\IT\Univ\ForWhile\bin\Debug\net6.0\ForWhile.deps.json
+D:\IT\Univ\ForWhile\bin\Debug\net6.0\ForWhile.runtimeconfig.json
+D:\IT\Univ\ForWhile\bin\Debug\net6.0\ForWhile.dll
+D:\IT\Univ\ForWhile\bin\Debug\net6.0\ForWhile.pdb
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.csproj.AssemblyReference.cache
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.AssemblyInfoInputs.cache
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.AssemblyInfo.cs
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.csproj.CoreCompileInputs.cache
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.dll
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\refint\ForWhile.dll
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.pdb
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ForWhile.genruntimeconfig.cache
+D:\IT\Univ\ForWhile\obj\Debug\net6.0\ref\ForWhile.dll
