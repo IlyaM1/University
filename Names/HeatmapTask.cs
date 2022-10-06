@@ -5,19 +5,29 @@ namespace Names
 {
     internal static class HeatmapTask
     {
+        public static string[] GenerateDayNumbersArray()
+        {
+            var dayNumbers = new string[30];
+            for (var i = 0; i < 30; i++)
+                dayNumbers[i] = (i + 2).ToString();
+            return dayNumbers;
+        }
+
+        public static string[] GenerateMonthNumbersArray()
+        {
+            var monthNumbers = new string[12];
+            for (var i = 0; i < 12; i++)
+                monthNumbers[i] = (i + 1).ToString();
+            return monthNumbers;
+        }
+
         public static HeatmapData GetBirthsPerDateHeatmap(NameData[] names)
         {
-            var xLabel = new string[30];
-            for (var i = 0; i < 30; i++)
-                xLabel[i] = (i + 2).ToString();
+            var xLabel = GenerateDayNumbersArray();
+            var yLabel = GenerateMonthNumbersArray();
 
-            var yLabel = new string[12];
-            for (var i = 0; i < 12; i++)
-                yLabel[i] = (i + 1).ToString();
-
-            var amountNames = names.Length;
             var amountPeopleBornInOneDayAndMonth = new double[30, 12];
-            for (var i = 0; i < amountNames; i++)
+            for (var i = 0; i < names.Length; i++)
             {
                 var dayOfMonth = names[i].BirthDate.Day;
                 var numberOfMonth = names[i].BirthDate.Month;
