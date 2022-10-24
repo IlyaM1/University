@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\University\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {}
+    "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {}
   },
   "projects": {
-    "C:\\Code\\University\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {
+    "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\University\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "projectUniqueName": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "C:\\Code\\University\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
-        "packagesPath": "C:\\Users\\iluha\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\University\\1\\HelloWorld\\HelloWorld\\obj\\",
+        "projectPath": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "packagesPath": "C:\\Users\\Catsher\\.nuget\\packages\\",
+        "outputPath": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\iluha\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Catsher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

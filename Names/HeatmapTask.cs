@@ -5,26 +5,18 @@ namespace Names
 {
     internal static class HeatmapTask
     {
-        public static string[] GenerateDayNumbersArray()
+        public static string[] GenerateConsecutiveNumbersArray(int length, int startNum)
         {
-            var dayNumbers = new string[30];
-            for (var i = 0; i < 30; i++)
-                dayNumbers[i] = (i + 2).ToString();
-            return dayNumbers;
-        }
-
-        public static string[] GenerateMonthNumbersArray()
-        {
-            var monthNumbers = new string[12];
-            for (var i = 0; i < 12; i++)
-                monthNumbers[i] = (i + 1).ToString();
-            return monthNumbers;
+            var numbers = new string[length];
+            for (var i = 0; i < length; i++)
+                numbers[i] = (i + startNum).ToString();
+            return numbers;
         }
 
         public static HeatmapData GetBirthsPerDateHeatmap(NameData[] names)
         {
-            var xLabel = GenerateDayNumbersArray();
-            var yLabel = GenerateMonthNumbersArray();
+            var xLabel = GenerateConsecutiveNumbersArray(30, 2);
+            var yLabel = GenerateConsecutiveNumbersArray(12, 1);
 
             var amountPeopleBornInOneDayAndMonth = new double[30, 12];
             for (var i = 0; i < names.Length; i++)
