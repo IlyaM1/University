@@ -1,21 +1,53 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Recognizer
 {
 	internal static class MedianFilterTask
 	{
-		/* 
-		 * Для борьбы с пиксельным шумом, подобным тому, что на изображении,
-		 * обычно применяют медианный фильтр, в котором цвет каждого пикселя, 
-		 * заменяется на медиану всех цветов в некоторой окрестности пикселя.
-		 * https://en.wikipedia.org/wiki/Median_filter
-		 * 
-		 * Используйте окно размером 3х3 для не граничных пикселей,
-		 * Окно размером 2х2 для угловых и 3х2 или 2х3 для граничных.
-		 */
-		public static double[,] MedianFilter(double[,] original)
+		public static double CountMedian(double[] pixels)
 		{
-			return original;
+			Array.Sort(pixels);
+			var length = pixels.Length;
+
+			if (length % 2 == 0)
+				return (pixels[length / 2 - 1] + pixels[length / 2]) / 2;
+			else
+				return pixels[length / 2];
+		}
+
+        public static double[] GetSurroundingsForPixel(double[,] original, int pixelX, int pixelY, int maxX, int maxY)
+        {
+            var xLeftBorder = (pixelX > 0) ? pixelX - 1 : 0;
+            var xRightBorder = (pixelX < maxX) ? pixelX + 1 : maxX;
+            var yUpBorder = pixelY > 0 ? pixelY - 1 : 0;
+            var yDownBorder = pixelY < maxY ? pixelY + 1 : maxY;
+
+            var surroundings = new List<double>();
+            for (var x = xLeftBorder; x <= xRightBorder; x++)
+                for (var y = yUpBorder; y <= yDownBorder; y++)
+                {
+                    surroundings.Add(original[x, y]);
+                }
+            return surroundings.ToArray();
+        }
+
+        public static double[,] MedianFilter(double[,] original)
+		{
+            var originalLength0 = original.GetLength(0);
+            var originalLength1 = original.GetLength(1);
+
+            var grayScaleWithoutNoise = new double[originalLength0, originalLength1];
+
+            for (var i = 0; i < originalLength0; i++)
+                for (var j = 0; j < originalLength1; j++)
+                {
+					var surroundings = GetSurroundingsForPixel(original, i, j, originalLength0 - 1, originalLength1 - 1);
+                    grayScaleWithoutNoise[i, j] = CountMedian(surroundings);
+                }
+
+            return grayScaleWithoutNoise;
 		}
 	}
 }

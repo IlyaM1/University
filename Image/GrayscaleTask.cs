@@ -2,25 +2,20 @@
 {
 	public static class GrayscaleTask
 	{
-		/* 
-		 * Переведите изображение в серую гамму.
-		 * 
-		 * original[x, y] - массив пикселей с координатами x, y. 
-		 * Каждый канал R,G,B лежит в диапазоне от 0 до 255.
-		 * 
-		 * Получившийся массив должен иметь те же размеры, 
-		 * grayscale[x, y] - яркость пикселя (x,y) в диапазоне от 0.0 до 1.0
-		 *
-		 * Используйте формулу:
-		 * Яркость = (0.299*R + 0.587*G + 0.114*B) / 255
-		 * 
-		 * Почему формула именно такая — читайте в википедии 
-		 * http://ru.wikipedia.org/wiki/Оттенки_серого
-		 */
-
 		public static double[,] ToGrayscale(Pixel[,] original)
 		{
-			return new double[original.GetLength(0), original.GetLength(1)];
+			var grayScale = new double[original.GetLength(0), original.GetLength(1)];
+			var originalLength0 = original.GetLength(0);
+			var originalLength1 = original.GetLength(1);
+
+            for (var i = 0; i < originalLength0; i++)
+				for (var j = 0; j < originalLength1; j++)
+				{
+					var currentPixel = original[i, j];
+					grayScale[i, j] = (0.299 * currentPixel.R + 0.587 * currentPixel.G + 0.114 * currentPixel.B) / 255;
+                }
+
+			return grayScale;
 		}
 	}
 }

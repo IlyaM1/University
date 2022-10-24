@@ -1,0 +1,9 @@
+D:\IT\Univ\Image\bin\Debug\eurobot.bmp
+D:\IT\Univ\Image\bin\Debug\Recognizer.exe.config
+D:\IT\Univ\Image\bin\Debug\Recognizer.exe
+D:\IT\Univ\Image\bin\Debug\Recognizer.pdb
+D:\IT\Univ\Image\obj\Debug\Image.csproj.AssemblyReference.cache
+D:\IT\Univ\Image\obj\Debug\Image.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\Image\obj\Debug\Image.csproj.CoreCompileInputs.cache
+D:\IT\Univ\Image\obj\Debug\Recognizer.exe
+D:\IT\Univ\Image\obj\Debug\Recognizer.pdb
