@@ -8,17 +8,17 @@ namespace TextAnalysis
 {
     static class FrequencyAnalysisTask
     {
-        public static Dictionary<string, Dictionary<string, int>> GetFrequencyNgramsDictionary(List<List<string>> text, int N)
+        public static Dictionary<string, Dictionary<string, int>> GetFrequencyNgramsDictionary(List<List<string>> text, int n)
         {
             var frequencyBigram = new Dictionary<string, Dictionary<string, int>>();
 
             for (var i = 0; i < text.Count; i++)
             {
-                for (var j = N - 1; j < text[i].Count; j++)
+                for (var j = n - 1; j < text[i].Count; j++)
                 {
-                    var NgramWords = text[i].GetRange(j - N + 1, N);
-                    var startWords = String.Join(" ", NgramWords.GetRange(0, N - 1));
-                    var endWord = NgramWords[NgramWords.Count - 1];
+                    var ngramWords = text[i].GetRange(j - n + 1, n);
+                    var startWords = String.Join(" ", ngramWords.GetRange(0, n - 1));
+                    var endWord = ngramWords[ngramWords.Count - 1];
                     if (!frequencyBigram.ContainsKey(startWords))
                         frequencyBigram[startWords] = new Dictionary<string, int>();
                     if (!frequencyBigram[startWords].ContainsKey(endWord))
@@ -31,21 +31,21 @@ namespace TextAnalysis
             return frequencyBigram;
         }
 
-        public static Dictionary<string, string> FindNgramResult(Dictionary<string, Dictionary<string, int>> frequencyNgram, int N)
+        public static Dictionary<string, string> FindNgramResult(Dictionary<string, Dictionary<string, int>> frequencyNgram, int n)
         {
-            var NgramResult = new Dictionary<string, string>();
+            var ngramResult = new Dictionary<string, string>();
 
             foreach (var startWord in frequencyNgram)
             {
                 var allEndWordAndTheirValues = startWord.Value;
-                var endWord = FindMostAppropriateLastWordOfNgram(allEndWordAndTheirValues, N);
-                NgramResult[startWord.Key] = endWord;
+                var endWord = FindMostAppropriateLastWordOfNgram(allEndWordAndTheirValues, n);
+                ngramResult[startWord.Key] = endWord;
             }
 
-            return NgramResult;
+            return ngramResult;
         }
 
-        public static string FindMostAppropriateLastWordOfNgram(Dictionary<string, int> allMatchedEndWordsWithValues, int N)
+        public static string FindMostAppropriateLastWordOfNgram(Dictionary<string, int> allMatchedEndWordsWithValues, int n)
         {
             var maxFrequency = -1;
             foreach (var item in allMatchedEndWordsWithValues)
@@ -83,7 +83,6 @@ namespace TextAnalysis
             var trigramResult = FindNgramResult(frequencyTrigram, 3);
             //trigramResult.ToList().ForEach(x => result.Add(x.Key, x.Value)); // join dictionaries
             trigramResult.ToList().ForEach(x => result[x.Key] = x.Value); // join dictionaries
-            // sorry for awful code, will fix later
 
             return result;
         }
