@@ -11,14 +11,15 @@ namespace Recognizer
             var result = new double[width, height];
 
             var offset = sx.GetLength(0) / 2;
+            var sxLength0 = sx.GetLength(0);
 
             for (var x = offset; x < width - offset; x++)
             {
                 for (var y = offset; y < height - offset; y++)
                 {
-                    var gCropped = GetCroppedMatrix(g, x, y, sx.GetLength(0));
+                    var gCropped = GetCroppedMatrix(g, x, y, sxLength0);
                     var gx = GetConvolution(gCropped, sx);
-                    var sRotated = GetRotated(sx);
+                    var sRotated = GetTransposed(sx);
                     var gy = GetConvolution(gCropped, sRotated);
 
                     result[x, y] = Math.Sqrt(gx * gx + gy * gy);
@@ -40,7 +41,7 @@ namespace Recognizer
             return result;
         }
 
-        public static double[,] GetRotated(double[,] sx)
+        public static double[,] GetTransposed(double[,] sx)
         {
             var length = sx.GetLength(0);
             var result = new double[length, length];

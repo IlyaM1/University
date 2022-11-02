@@ -8,12 +8,18 @@ namespace Recognizer
 	{
         public static double[] TransformTwoDimensionalArrayToArray(double[,] arr)
         {
-            var copiedArray = new List<double>();
+            var leng = arr.Length;
 
-            foreach (var t in arr)
-                copiedArray.Add(t);
+            var copiedArray = new double[leng];
 
-            return copiedArray.ToArray();
+            var i = 0;
+            foreach (var item in arr)
+            {
+                copiedArray[i] = item;
+                i++;
+            }    
+
+            return copiedArray;
         }
 
         public static double FindT(double[,] original, double amountWhitePixels)
@@ -24,23 +30,23 @@ namespace Recognizer
             var originalSorted = TransformTwoDimensionalArrayToArray(original);
             Array.Sort(originalSorted);
 
-            var T = originalSorted[original.Length - (int)amountWhitePixels];
+            var t = originalSorted[original.Length - (int)amountWhitePixels];
 
-            return T;
+            return t;
         }
 
         public static double[,] ThresholdFilter(double[,] original, double whitePixelsFraction)
         {
-            double amountWhitePixels = (int)(original.Length * whitePixelsFraction);
+            var amountWhitePixels = (int)(original.Length * whitePixelsFraction);
 
-            var T = FindT(original, amountWhitePixels);
+            var t = FindT(original, amountWhitePixels);
 
             var originalLength0 = original.GetLength(0);
             var originalLength1 = original.GetLength(1);
 
             for (var i = 0; i < originalLength0; i++)
                 for (var j = 0; j < originalLength1; j++)
-                    original[i, j] = (original[i, j] >= T) ? 1 : 0;
+                    original[i, j] = (original[i, j] >= t) ? 1 : 0;
 
             return original;
         }

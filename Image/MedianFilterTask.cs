@@ -6,10 +6,10 @@ namespace Recognizer
 {
 	internal static class MedianFilterTask
 	{
-		public static double CountMedian(double[] pixels)
+		public static double CountMedian(List<double> pixels)
 		{
-			Array.Sort(pixels);
-			var length = pixels.Length;
+            pixels.Sort();
+			var length = pixels.Count;
 
 			if (length % 2 == 0)
 				return (pixels[length / 2 - 1] + pixels[length / 2]) / 2;
@@ -17,7 +17,7 @@ namespace Recognizer
 				return pixels[length / 2];
 		}
 
-        public static double[] GetSurroundingsForPixel(double[,] original, int pixelX, int pixelY, int maxX, int maxY)
+        public static List<double> GetSurroundingsForPixel(double[,] original, int pixelX, int pixelY, int maxX, int maxY)
         {
             var xLeftBorder = (pixelX > 0) ? pixelX - 1 : 0;
             var xRightBorder = (pixelX < maxX) ? pixelX + 1 : maxX;
@@ -30,7 +30,7 @@ namespace Recognizer
                 {
                     surroundings.Add(original[x, y]);
                 }
-            return surroundings.ToArray();
+            return surroundings;
         }
 
         public static double[,] MedianFilter(double[,] original)
