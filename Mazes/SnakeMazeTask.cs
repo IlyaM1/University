@@ -7,36 +7,18 @@
             var corridorsAmount = height / 4;
             for (int i = 0; i < corridorsAmount; i++)
             {
-                MoveRight(robot, width - 3);
-                MoveDown(robot, 2);
-                MoveLeft(robot, width - 3);
+                MoveToDirection(robot, width - 3, Direction.Right);
+                MoveToDirection(robot, 2, Direction.Down);
+                MoveToDirection(robot, width - 3, Direction.Left);
                 if (i != corridorsAmount - 1)
-                    MoveDown(robot, 2);
+                    MoveToDirection(robot, 2, Direction.Down);
             } 
         }
 
-        public static void MoveLeft(Robot robot, int stepCount)
+        public static void MoveToDirection(Robot robot, int stepCount, Direction direction)
         {
             for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Left);
-        }
-
-        public static void MoveRight(Robot robot, int stepCount)
-        {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Right);
-        }
-
-        public static void MoveUp(Robot robot, int stepCount)
-        {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Up);
-        }
-
-        public static void MoveDown(Robot robot, int stepCount)
-        {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Down);
+                robot.MoveTo(direction);
         }
     }
 }

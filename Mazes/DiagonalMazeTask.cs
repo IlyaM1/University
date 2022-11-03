@@ -12,53 +12,30 @@ namespace Mazes
             var numbRectPaths = Math.Min(width, height);
             
             if (width > height)
-                MoveDiagonalFromRight(robot, 1, (int)(Math.Round((double)(width) / numbRectPaths)), numbRectPaths);
+                MoveDiagonal(robot, FindCorridorLength(width, numbRectPaths), 1, numbRectPaths, Direction.Right);
             else
-                MoveDiagonalFromDown(robot, (int)(Math.Round((double)(height) / numbRectPaths)), 1, numbRectPaths);
+                MoveDiagonal(robot, FindCorridorLength(height, numbRectPaths), 1, numbRectPaths, Direction.Down);
         }
         
-        public static void MoveDiagonalFromDown(Robot r, int intervalDown, int intervalRight, int loops)
+        public static void MoveDiagonal(Robot r, int intervalDown, int intervalRight, int loops, Direction startDirection)
         {
             for (int i = 0; i < loops; i++)
             {
-                MoveDown(r, intervalDown);
+                MoveToDirection(r, intervalDown, startDirection);
                 if (i != loops - 1)
-                    MoveRight(r, intervalRight);
+                    MoveToDirection(r, intervalRight, (startDirection == Direction.Right) ? Direction.Down : Direction.Right);
             }
         }
 
-        public static void MoveDiagonalFromRight(Robot r, int intervalDown, int intervalRight, int loops)
-        {
-            for (int i = 0; i < loops; i++)
-            {
-                MoveRight(r, intervalRight);
-                if (i != loops - 1)
-                    MoveDown(r, intervalDown);
-            }
-        }
-
-        public static void MoveLeft(Robot robot, int stepCount)
+        public static void MoveToDirection(Robot robot, int stepCount, Direction direction)
         {
             for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Left);
+                robot.MoveTo(direction);
         }
 
-        public static void MoveRight(Robot robot, int stepCount)
+        public static int FindCorridorLength(int measurement, int numbRectPaths)
         {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Right);
-        }
-
-        public static void MoveUp(Robot robot, int stepCount)
-        {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Up);
-        }
-
-        public static void MoveDown(Robot robot, int stepCount)
-        {
-            for (int i = 0; i < stepCount; i++)
-                robot.MoveTo(Direction.Down);
+            return (int)(Math.Round((double)(measurement) / numbRectPaths));
         }
     }
 }

@@ -1,0 +1,12 @@
+D:\IT\Univ\Names\bin\Debug\names.txt
+D:\IT\Univ\Names\bin\Debug\Names.exe.config
+D:\IT\Univ\Names\bin\Debug\Names.exe
+D:\IT\Univ\Names\bin\Debug\Names.pdb
+D:\IT\Univ\Names\bin\Debug\ZedGraph.dll
+D:\IT\Univ\Names\bin\Debug\ZedGraph.xml
+D:\IT\Univ\Names\obj\Debug\Names.csproj.AssemblyReference.cache
+D:\IT\Univ\Names\obj\Debug\Names.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\Names\obj\Debug\Names.csproj.CoreCompileInputs.cache
+D:\IT\Univ\Names\obj\Debug\Names.csproj.CopyComplete
+D:\IT\Univ\Names\obj\Debug\Names.exe
+D:\IT\Univ\Names\obj\Debug\Names.pdb
