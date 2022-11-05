@@ -1,0 +1,15 @@
+D:\IT\Univ\SearchSort\bin\Debug\net6.0\SearchSort.exe
+D:\IT\Univ\SearchSort\bin\Debug\net6.0\SearchSort.deps.json
+D:\IT\Univ\SearchSort\bin\Debug\net6.0\SearchSort.runtimeconfig.json
+D:\IT\Univ\SearchSort\bin\Debug\net6.0\SearchSort.dll
+D:\IT\Univ\SearchSort\bin\Debug\net6.0\SearchSort.pdb
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.csproj.AssemblyReference.cache
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.AssemblyInfoInputs.cache
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.AssemblyInfo.cs
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.csproj.CoreCompileInputs.cache
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.dll
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\refint\SearchSort.dll
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.pdb
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\SearchSort.genruntimeconfig.cache
+D:\IT\Univ\SearchSort\obj\Debug\net6.0\ref\SearchSort.dll
