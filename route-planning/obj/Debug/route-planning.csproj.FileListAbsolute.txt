@@ -25,3 +25,5 @@ D:\IT\Univ\route-planning\obj\Debug\route-planning.csproj.SuggestedBindingRedire
 D:\IT\Univ\route-planning\obj\Debug\route-planning.csproj.CoreCompileInputs.cache
 D:\IT\Univ\route-planning\obj\Debug\RoutePlanning.exe
 D:\IT\Univ\route-planning\obj\Debug\RoutePlanning.pdb
+C:\Code\University\route-planning\obj\Debug\RoutePlanning.exe
+C:\Code\University\route-planning\obj\Debug\RoutePlanning.pdb
