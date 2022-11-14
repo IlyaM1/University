@@ -1,0 +1,3 @@
+C:\Code\University\manipulator\manipulator.csproj\obj\Debug\manipulator.csprojResolveAssemblyReference.cache
+C:\Code\University\manipulator\manipulator.csproj\obj\Debug\Manipulation.Properties.Resources.resources
+C:\Code\University\manipulator\manipulator.csproj\obj\Debug\manipulator.csproj.GenerateResource.Cache

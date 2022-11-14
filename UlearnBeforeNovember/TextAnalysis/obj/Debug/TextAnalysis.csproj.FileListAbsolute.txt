@@ -12,3 +12,8 @@ D:\IT\Univ\TextAnalysis\obj\Debug\TextAnalysis.csproj.CoreCompileInputs.cache
 D:\IT\Univ\TextAnalysis\obj\Debug\TextAnalysis.csproj.CopyComplete
 D:\IT\Univ\TextAnalysis\obj\Debug\TextAnalysis.exe
 D:\IT\Univ\TextAnalysis\obj\Debug\TextAnalysis.pdb
+C:\Code\University\UlearnBeforeNovember\TextAnalysis\obj\Debug\TextAnalysis.csprojResolveAssemblyReference.cache
+C:\Code\University\UlearnBeforeNovember\TextAnalysis\obj\Debug\TextAnalysis.Properties.Resources.resources
+C:\Code\University\UlearnBeforeNovember\TextAnalysis\obj\Debug\TextAnalysis.csproj.GenerateResource.Cache
+C:\Code\University\UlearnBeforeNovember\TextAnalysis\obj\Debug\TextAnalysis.exe
+C:\Code\University\UlearnBeforeNovember\TextAnalysis\obj\Debug\TextAnalysis.pdb

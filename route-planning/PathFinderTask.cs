@@ -16,7 +16,7 @@ namespace RoutePlanning
             var maxPermutation = new int[0];
             foreach (var elem in allPermutations)
             {
-                var lengOfPath = PointExtensions.GetPathLength(checkpoints, elem);
+                var lengOfPath = checkpoints.GetPathLength(elem);
                 if (lengOfPath < minLen)
                 {
                     maxPermutation = elem;
