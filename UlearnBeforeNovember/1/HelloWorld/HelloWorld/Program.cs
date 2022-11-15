@@ -7,14 +7,28 @@ using System.Text.RegularExpressions;
 
 class HelloWorld
 {
+    static int FindIndexByBinarySearch2(int[] array, int value, int left, int right)
+    {
+        if (value >= array[array.Length - 1])
+            return -1;
+
+        while (left + 1 != right)
+        {
+            var middle = (right + left) / 2;
+            if (value < array[middle])
+                right = middle;
+            else left = middle + 1;
+        }
+
+        if (array[left] > value)
+            return left;
+        return -1;
+    }
+
     static void Main()
     {
-        var n = 151;
-        var operations = 0;
-        for (int i = 0; i < n; i += 2)
-            for (int j = 0; j < i; j++)
-                operations++;
-        Console.WriteLine(operations);
-        Console.WriteLine(((n * n) - 2 * n) / 4);
+        var array = new int[] { 1, 2, 3, 4, 5 };
+        var smt = FindIndexByBinarySearch2(array, 5, -1, array.Length);
+        Console.WriteLine(smt);
     }
 }

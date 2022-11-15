@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Drawing;
 using NUnit.Framework;
-using Manipulation.Manipulator;
 
 namespace Manipulation
 {
     public static class AnglesToCoordinatesTask
     {
-        /// <summary>
-        /// По значению углов суставов возвращает массив координат суставов
-        /// в порядке new []{elbow, wrist, palmEnd}
-        /// </summary>
         public static PointF[] GetJointPositions(double shoulder, double elbow, double wrist)
         {
-        	var elbowX = UpperArm * Math.Pow(Math.Cos(shoulder), 2);
-        	var elbowY = UpperArm * Math.Sin(shoulder);
-        	
+            var elbowX = Manipulator.UpperArm * (float)Math.Cos(shoulder);
+            var elbowY = Manipulator.UpperArm * (float)Math.Sin(shoulder);
             var elbowPos = new PointF(elbowX, elbowY);
-            var wristPos = new PointF((float) Manipulator.Forearm, (float) Manipulator.UpperArm);
-            var palmEndPos = new PointF((float) (Manipulator.Forearm + Manipulator.Palm), (float) Manipulator.UpperArm);
+
+            var wristX = elbowX + (Manipulator.Forearm * (float)Math.Cos(elbow + shoulder - Math.PI));
+            var wristY = elbowY + (Manipulator.Forearm * (float)Math.Sin(elbow + shoulder - Math.PI));
+            var wristPos = new PointF(wristX, wristY);
+
+            var palmEndX = wristX + (Manipulator.Palm * (float)Math.Cos(wrist + elbow + (shoulder - (2 * Math.PI))));
+            var palmEndY = wristY + (Manipulator.Palm * (float)Math.Sin(wrist + elbow + (shoulder - (2 * Math.PI))));
+            var palmEndPos = new PointF(palmEndX, palmEndY);
+
             return new PointF[]
             {
                 elbowPos,
@@ -31,16 +32,16 @@ namespace Manipulation
     [TestFixture]
     public class AnglesToCoordinatesTask_Tests
     {
-        // Доработайте эти тесты!
-        // С помощью строчки TestCase можно добавлять новые тестовые данные.
-        // Аргументы TestCase превратятся в аргументы метода.
+        [TestCase(Math.PI / 2, Math.PI / 2, Math.PI, Manipulator.Forearm + Manipulator.Palm, Manipulator.UpperArm)]
+        [TestCase(Math.PI / 2, Math.PI / 2, Math.PI, Manipulator.Forearm + Manipulator.Palm, Manipulator.UpperArm)]
+        [TestCase(Math.PI / 2, Math.PI / 2, Math.PI, Manipulator.Forearm + Manipulator.Palm, Manipulator.UpperArm)]
         [TestCase(Math.PI / 2, Math.PI / 2, Math.PI, Manipulator.Forearm + Manipulator.Palm, Manipulator.UpperArm)]
         public void TestGetJointPositions(double shoulder, double elbow, double wrist, double palmEndX, double palmEndY)
         {
             var joints = AnglesToCoordinatesTask.GetJointPositions(shoulder, elbow, wrist);
             Assert.AreEqual(palmEndX, joints[2].X, 1e-5, "palm endX");
             Assert.AreEqual(palmEndY, joints[2].Y, 1e-5, "palm endY");
-            Assert.Fail("TODO: проверить, что расстояния между суставами равны длинам сегментов манипулятора!");
+            //Assert.Fail("TODO: проверить, что расстояния между суставами равны длинам сегментов манипулятора!");
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {}
+    "D:\\IT\\Univ\\UlearnBeforeNovember\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {}
   },
   "projects": {
-    "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {
+    "D:\\IT\\Univ\\UlearnBeforeNovember\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "projectUniqueName": "D:\\IT\\Univ\\UlearnBeforeNovember\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "projectPath": "D:\\IT\\Univ\\UlearnBeforeNovember\\1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
         "packagesPath": "C:\\Users\\Catsher\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\Univ\\1\\HelloWorld\\HelloWorld\\obj\\",
+        "outputPath": "D:\\IT\\Univ\\UlearnBeforeNovember\\1\\HelloWorld\\HelloWorld\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

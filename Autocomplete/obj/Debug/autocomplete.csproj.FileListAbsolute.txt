@@ -1,0 +1,16 @@
+D:\IT\Univ\Autocomplete\bin\Debug\dic\adjectives.txt
+D:\IT\Univ\Autocomplete\bin\Debug\dic\nouns.txt
+D:\IT\Univ\Autocomplete\bin\Debug\dic\verbs.txt
+D:\IT\Univ\Autocomplete\bin\Debug\Autocomplete.exe.config
+D:\IT\Univ\Autocomplete\bin\Debug\Autocomplete.exe
+D:\IT\Univ\Autocomplete\bin\Debug\Autocomplete.pdb
+D:\IT\Univ\Autocomplete\bin\Debug\nunit.framework.dll
+D:\IT\Univ\Autocomplete\obj\Debug\autocomplete.csproj.AssemblyReference.cache
+D:\IT\Univ\Autocomplete\obj\Debug\autocomplete.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\Autocomplete\obj\Debug\Autocomplete.AutocompleteForm.resources
+D:\IT\Univ\Autocomplete\obj\Debug\Autocomplete.Properties.Resources.resources
+D:\IT\Univ\Autocomplete\obj\Debug\autocomplete.csproj.GenerateResource.cache
+D:\IT\Univ\Autocomplete\obj\Debug\autocomplete.csproj.CoreCompileInputs.cache
+D:\IT\Univ\Autocomplete\obj\Debug\autocomplete.csproj.CopyComplete
+D:\IT\Univ\Autocomplete\obj\Debug\Autocomplete.exe
+D:\IT\Univ\Autocomplete\obj\Debug\Autocomplete.pdb

@@ -21,29 +21,52 @@ namespace Manipulation
 
 		public static void KeyDown(Form form, KeyEventArgs key)
 		{
-			// TODO: Добавьте реакцию на QAWS и пересчитывать Wrist
-			form.Invalidate(); // 
+			if (key.KeyCode == Keys.Q)
+				Shoulder += 0.01;
+            if (key.KeyCode == Keys.A)
+                Shoulder -= 0.01;
+
+            if (key.KeyCode == Keys.W)
+                Elbow += 0.01;
+            if (key.KeyCode == Keys.S)
+                Elbow -= 0.01;
+
+			Wrist = -Alpha - Shoulder - Elbow;
+
+            form.Invalidate();
 		}
 
 
 		public static void MouseMove(Form form, MouseEventArgs e)
 		{
-			// TODO: Измените X и Y пересчитав координаты (e.X, e.Y) в логические.
+			var mathPoint = ConvertWindowToMath(new PointF(e.X, e.Y), new PointF(0, 0));
+			X = mathPoint.X;
+			Y = mathPoint.Y;
 
-			UpdateManipulator();
-			form.Invalidate();
+            // TODO: Измените X и Y пересчитав координаты (e.X, e.Y) в логические.
+
+            UpdateManipulator();
+
+            mathPoint = ConvertMathToWindow(new PointF((float)X, (float)Y), new PointF(0, 0));
+			X = mathPoint.X;
+			Y = mathPoint.Y;
+
+            form.Invalidate();
 		}
 
 		public static void MouseWheel(Form form, MouseEventArgs e)
 		{
 			// TODO: Измените Alpha, используя e.Delta — размер прокрутки колеса мыши
-
+			Alpha += e.Delta;
 			UpdateManipulator();
 			form.Invalidate();
 		}
 
 		public static void UpdateManipulator()
 		{
+			if (X != double.NaN && Y != double.NaN && Alpha != double.NaN)
+				ManipulatorTask.MoveManipulatorTo(X, Y, Alpha);
+			
 			// Вызовите ManipulatorTask.MoveManipulatorTo и обновите значения полей Shoulder, Elbow и Wrist, 
             // если они не NaN. Это понадобится для последней задачи.
 		}
@@ -60,6 +83,10 @@ namespace Manipulation
                 10);
 			DrawReachableZone(graphics, ReachableAreaBrush, UnreachableAreaBrush, shoulderPos, joints);
 
+
+			graphics.DrawLine(0, 0, joints[0].X, joints[0].Y);
+			graphics.DrawLine(0, 0, joints[0].X, joints[0].Y);
+			graphics.DrawLine(0, 0, joints[0].X, joints[0].Y);
 			// Нарисуйте сегменты манипулятора методом graphics.DrawLine используя ManipulatorPen.
 			// Нарисуйте суставы манипулятора окружностями методом graphics.FillEllipse используя JointBrush.
 			// Не забудьте сконвертировать координаты из логических в оконные

@@ -1,31 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Xml.Linq;
 
 namespace Autocomplete
 {
     public class RightBorderTask
     {
-        /// <returns>
-        /// Возвращает индекс правой границы. 
-        /// То есть индекс минимального элемента, который не начинается с prefix и большего prefix.
-        /// Если такого нет, то возвращает items.Length
-        /// </returns>
-        /// <remarks>
-        /// Функция должна быть НЕ рекурсивной
-        /// и работать за O(log(items.Length)*L), где L — ограничение сверху на длину фразы
-        /// </remarks>
         public static int GetRightBorderIndex(IReadOnlyList<string> phrases, string prefix, int left, int right)
         {
-            // IReadOnlyList похож на List, но у него нет методов модификации списка.
-            // Этот код решает задачу, но слишком неэффективно. Замените его на бинарный поиск!
-            for (int i = phrases.Count-1; i >= 0; i--)
+            if (phrases.Count == 0) 
+                return right;
+            if (IsStr1BiggerOrEqualThanStr2(prefix, phrases[right - 1]))
+                return right;
+
+            left++;
+            right--;
+            while (left < right)
             {
-                if (string.Compare(prefix, phrases[i], StringComparison.OrdinalIgnoreCase) >= 0 
-                    || phrases[i].StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
-                    return i + 1;
+                var middle = (right + left) / 2;
+
+                if (IsStr1BiggerOrEqualThanStr2(prefix, phrases[middle])
+                        || IsStr1StartsWithStr2(phrases[middle], prefix))
+                    left = middle + 1;
+                else
+                    right = middle - 1;
             }
-            return 0;
+
+            if (IsStr1BiggerOrEqualThanStr2(prefix, phrases[right]) 
+                || IsStr1StartsWithStr2(phrases[left], prefix))
+                return right + 1;
+            else
+                return right;
+        }
+
+        public static bool IsStr1BiggerOrEqualThanStr2(string value1, string value2)
+        {
+            return string.Compare(value1, value2, StringComparison.OrdinalIgnoreCase) >= 0
+                ? true
+                : false;
+        }
+
+        public static bool IsStr1StartsWithStr2(string value1, string value2)
+        {
+            return value1.StartsWith(value2, StringComparison.OrdinalIgnoreCase)
+                ? true
+                : false;
         }
     }
 }

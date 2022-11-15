@@ -1,14 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Autocomplete
 {
-    // Внимание!
-    // Есть одна распространенная ловушка при сравнении строк: строки можно сравнивать по-разному:
-    // с учетом регистра, без учета, зависеть от кодировки и т.п.
-    // В файле словаря все слова отсортированы методом StringComparison.OrdinalIgnoreCase.
-    // Во всех функциях сравнения строк в C# можно передать способ сравнения.
     public class LeftBorderTask
     {
         /// <returns>
@@ -22,15 +18,22 @@ namespace Autocomplete
         /// </remarks>
         public static int GetLeftBorderIndex(IReadOnlyList<string> phrases, string prefix, int left, int right)
         {
-            // IReadOnlyList похож на List, но у него нет методов модификации списка.
-            // Этот код решает задачу, но слишком неэффективно. Замените его на бинарный поиск!
-            for (int i = 0; i < phrases.Count; i++)
-            {
-                if (string.Compare(prefix, phrases[i], StringComparison.OrdinalIgnoreCase) < 0
-                    || phrases[i].StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
-                    return i - 1;
-            }
-            return phrases.Count-1;
+            if (left == right - 1)
+                return left;
+
+            int mid = (left + right) / 2;
+
+            if (IsStr1LessThanStr2(phrases[mid], prefix))
+                return GetLeftBorderIndex(phrases, prefix, mid, right);
+
+            return GetLeftBorderIndex(phrases, prefix, left, mid);
+        }
+
+        public static bool IsStr1LessThanStr2(string value1, string value2)
+        {
+            return string.Compare(value1, value2, StringComparison.OrdinalIgnoreCase) < 0
+                ? true 
+                : false;
         }
     }
 }
