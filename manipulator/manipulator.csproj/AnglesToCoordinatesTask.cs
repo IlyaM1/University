@@ -41,7 +41,6 @@ namespace Manipulation
             var joints = AnglesToCoordinatesTask.GetJointPositions(shoulder, elbow, wrist);
             Assert.AreEqual(palmEndX, joints[2].X, 1e-5, "palm endX");
             Assert.AreEqual(palmEndY, joints[2].Y, 1e-5, "palm endY");
-            //Assert.Fail("TODO: проверить, что расстояния между суставами равны длинам сегментов манипулятора!");
         }
     }
 }
