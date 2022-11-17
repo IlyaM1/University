@@ -1,0 +1,15 @@
+D:\IT\Univ\Colloc\bin\Debug\net6.0\Colloc.exe
+D:\IT\Univ\Colloc\bin\Debug\net6.0\Colloc.deps.json
+D:\IT\Univ\Colloc\bin\Debug\net6.0\Colloc.runtimeconfig.json
+D:\IT\Univ\Colloc\bin\Debug\net6.0\Colloc.dll
+D:\IT\Univ\Colloc\bin\Debug\net6.0\Colloc.pdb
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.csproj.AssemblyReference.cache
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.AssemblyInfoInputs.cache
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.AssemblyInfo.cs
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.csproj.CoreCompileInputs.cache
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.dll
+D:\IT\Univ\Colloc\obj\Debug\net6.0\refint\Colloc.dll
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.pdb
+D:\IT\Univ\Colloc\obj\Debug\net6.0\Colloc.genruntimeconfig.cache
+D:\IT\Univ\Colloc\obj\Debug\net6.0\ref\Colloc.dll
