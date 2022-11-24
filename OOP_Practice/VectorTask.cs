@@ -1,5 +1,5 @@
 ﻿using System;
-namespace GeometryTasks
+namespace OOP_Practice
 {
     public class Vector
     {
@@ -55,8 +55,8 @@ namespace GeometryTasks
 
         public static double GetLength(Segment seg)
         {
-            return Math.Sqrt(((seg.End.X - seg.Begin.X) * (seg.End.X - seg.Begin.X))
-                                 + ((seg.End.Y - seg.Begin.Y) * (seg.End.Y - seg.Begin.Y)));
+            return Math.Sqrt((seg.End.X - seg.Begin.X) * (seg.End.X - seg.Begin.X)
+                                 + (seg.End.Y - seg.Begin.Y) * (seg.End.Y - seg.Begin.Y));
         }
 
         public static bool IsVectorInSegment(Vector point, Segment seg)
@@ -66,7 +66,7 @@ namespace GeometryTasks
 
         public static double GetDistanceToSegment(Segment seg, Vector vec)
         {
-            if ((seg.Begin.X == vec.X && seg.Begin.Y == vec.Y) || (seg.End.X == vec.X && seg.End.Y == vec.Y))
+            if (seg.Begin.X == vec.X && seg.Begin.Y == vec.Y || seg.End.X == vec.X && seg.End.Y == vec.Y)
                 return 0;
 
             var ab = seg;
