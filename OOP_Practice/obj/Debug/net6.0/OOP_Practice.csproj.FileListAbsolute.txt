@@ -1,0 +1,12 @@
+D:\IT\Univ\OOP_Practice\bin\Debug\net6.0\OOP_Practice.deps.json
+D:\IT\Univ\OOP_Practice\bin\Debug\net6.0\OOP_Practice.dll
+D:\IT\Univ\OOP_Practice\bin\Debug\net6.0\OOP_Practice.pdb
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.csproj.AssemblyReference.cache
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.AssemblyInfoInputs.cache
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.AssemblyInfo.cs
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.csproj.CoreCompileInputs.cache
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.dll
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\refint\OOP_Practice.dll
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\OOP_Practice.pdb
+D:\IT\Univ\OOP_Practice\obj\Debug\net6.0\ref\OOP_Practice.dll
