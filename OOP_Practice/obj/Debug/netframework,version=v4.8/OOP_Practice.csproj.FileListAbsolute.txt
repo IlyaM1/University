@@ -1,0 +1,5 @@
+D:\IT\Univ\OOP_Practice\obj\Debug\netframework,version=v4.8\OOP_Practice.csproj.AssemblyReference.cache
+D:\IT\Univ\OOP_Practice\obj\Debug\netframework,version=v4.8\OOP_Practice.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\OOP_Practice\obj\Debug\netframework,version=v4.8\OOP_Practice.AssemblyInfoInputs.cache
+D:\IT\Univ\OOP_Practice\obj\Debug\netframework,version=v4.8\OOP_Practice.AssemblyInfo.cs
+D:\IT\Univ\OOP_Practice\obj\Debug\netframework,version=v4.8\OOP_Practice.csproj.CoreCompileInputs.cache

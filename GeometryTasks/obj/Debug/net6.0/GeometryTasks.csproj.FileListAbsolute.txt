@@ -1,0 +1,12 @@
+D:\IT\Univ\GeometryTasks\bin\Debug\net6.0\GeometryTasks.deps.json
+D:\IT\Univ\GeometryTasks\bin\Debug\net6.0\GeometryTasks.dll
+D:\IT\Univ\GeometryTasks\bin\Debug\net6.0\GeometryTasks.pdb
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.csproj.AssemblyReference.cache
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.AssemblyInfoInputs.cache
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.AssemblyInfo.cs
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.csproj.CoreCompileInputs.cache
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.dll
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\refint\GeometryTasks.dll
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\GeometryTasks.pdb
+D:\IT\Univ\GeometryTasks\obj\Debug\net6.0\ref\GeometryTasks.dll
