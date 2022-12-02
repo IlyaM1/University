@@ -1,0 +1,17 @@
+D:\IT\Univ\Digger\bin\Debug\Images\Digger.png
+D:\IT\Univ\Digger\bin\Debug\Images\Gold.png
+D:\IT\Univ\Digger\bin\Debug\Images\Monster.png
+D:\IT\Univ\Digger\bin\Debug\Images\Sack.png
+D:\IT\Univ\Digger\bin\Debug\Images\Terrain.png
+D:\IT\Univ\Digger\bin\Debug\11-digger.exe.config
+D:\IT\Univ\Digger\bin\Debug\11-digger.exe
+D:\IT\Univ\Digger\bin\Debug\11-digger.pdb
+D:\IT\Univ\Digger\bin\Debug\nunit.framework.dll
+D:\IT\Univ\Digger\obj\Debug\Digger.csproj.AssemblyReference.cache
+D:\IT\Univ\Digger\obj\Debug\Digger.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\Digger\obj\Debug\Digger.Properties.Resources.resources
+D:\IT\Univ\Digger\obj\Debug\Digger.csproj.GenerateResource.cache
+D:\IT\Univ\Digger\obj\Debug\Digger.csproj.CoreCompileInputs.cache
+D:\IT\Univ\Digger\obj\Debug\Digger.csproj.CopyComplete
+D:\IT\Univ\Digger\obj\Debug\11-digger.exe
+D:\IT\Univ\Digger\obj\Debug\11-digger.pdb

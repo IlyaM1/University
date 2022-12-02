@@ -4,6 +4,25 @@ namespace Digger
 {
     public static class Game
     {
+        private const string mapWidth2 = @"
+TS
+TP
+TT
+TT
+";
+
+        private const string mapWidth2SecondVariant = @"
+TS
+PT
+";
+        private const string mapFallingAgain = @"
+ S
+PT
+ T
+ T
+ T
+";
+
         private const string mapWithPlayerTerrain = @"
 TTT T
 TTP T
@@ -13,8 +32,8 @@ TT TT";
         private const string mapWithPlayerTerrainSackGold = @"
 PTTGTT TS
 TST  TSTT
-TTTTTTSTT
-T TSTS TT
+T TSTTSTT
+T TTTS TT
 T TTTG ST
 TSTSTT TT";
 
@@ -40,7 +59,7 @@ S TTST  TG
 
         public static void CreateMap()
         {
-            Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrain);
+            Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrainSackGoldMonster);
         }
     }
 }
