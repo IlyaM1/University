@@ -1,0 +1,15 @@
+D:\IT\Univ\HotelAccounting\bin\Debug\HotelAccounting.exe.config
+D:\IT\Univ\HotelAccounting\bin\Debug\HotelAccounting.exe
+D:\IT\Univ\HotelAccounting\bin\Debug\HotelAccounting.pdb
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.csproj.AssemblyReference.cache
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\HotelAccounting\obj\Debug\MainWindow.g.cs
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting_MarkupCompile.cache
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting_MarkupCompile.lref
+D:\IT\Univ\HotelAccounting\obj\Debug\MainWindow.baml
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.g.resources
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.Properties.Resources.resources
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.csproj.GenerateResource.cache
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.csproj.CoreCompileInputs.cache
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.exe
+D:\IT\Univ\HotelAccounting\obj\Debug\HotelAccounting.pdb
