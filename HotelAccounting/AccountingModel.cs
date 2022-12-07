@@ -43,7 +43,7 @@ namespace HotelAccounting
             set
             {
                 _discount = value;
-                _total = _price * _nightsCount * (1 - _discount / 100);
+                _total = CountTotal();
 
                 if (_total < 0) 
                     throw new ArgumentException();
@@ -56,7 +56,7 @@ namespace HotelAccounting
         private double _total;
         public double Total
         {
-            get => _price * _nightsCount * (1 - _discount / 100);
+            get => CountTotal();
             set
             {
                 if (value <= 0) 
@@ -68,6 +68,11 @@ namespace HotelAccounting
                 Notify(nameof(Total));
                 Notify(nameof(Discount));
             }
+        }
+
+        private double CountTotal()
+        {
+            return _price * _nightsCount * (1 - _discount / 100);
         }
     }
 }

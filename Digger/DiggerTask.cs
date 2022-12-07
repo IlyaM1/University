@@ -16,27 +16,60 @@ namespace Digger
 
     class Player : ICreature
     {
+        public static int X;
+        public static int Y;
+
+        public Player()
+        {
+            if (!(Game.Map is null))
+            {
+                var coordinates = FindPlayerCoordinates();
+                X = coordinates[0];
+                Y = coordinates[1];
+            }
+        }
+
         CreatureCommand ICreature.Act(int x, int y)
         {
             var command = new CreatureCommand();
 
             var pressedKey = Game.KeyPressed;
             if (pressedKey == Keys.Up && y - 1 >= 0)
+            {
                 if (!GameCheckers.IsCreatureInCell(x, y - 1, CreaturesNames.Sack))
+                {
                     command.DeltaY -= 1;
-
+                    Y -= 1;
+                }
+            }
+            
             if (pressedKey == Keys.Down && y + 1 < Game.MapHeight)
+            {
                 if (!GameCheckers.IsCreatureInCell(x, y + 1, CreaturesNames.Sack))
+                {
                     command.DeltaY += 1;
+                    Y += 1;
+                }
+            }  
 
             if (pressedKey == Keys.Right && x + 1 < Game.MapWidth)
+            {
                 if (!GameCheckers.IsCreatureInCell(x + 1, y, CreaturesNames.Sack))
+                {
                     command.DeltaX += 1;
+                    X += 1;
+                }
+            }
 
             if (pressedKey == Keys.Left && x - 1 >= 0)
+            {
                 if (!GameCheckers.IsCreatureInCell(x - 1, y, CreaturesNames.Sack))
+                {
                     command.DeltaX -= 1;
-
+                    X -= 1;
+                }
+            }
+                
             return command;
         }
 
@@ -59,6 +92,20 @@ namespace Digger
         string ICreature.GetImageFileName()
         {
             return "Digger.png";
+        }
+
+        private static int[] FindPlayerCoordinates()
+        {
+            /// <summary>
+            /// Метод для поиска координаты игрока по всему полю
+            /// </summary>
+            /// <returns>Возвращает координаты игрока в формате массива интов [x, y], иначе возвращает {- 1}</returns>
+            for (var i = 0; i < Game.MapWidth; i++)
+                for (var j = 0; j < Game.MapHeight; j++)
+                    if (Game.Map[i, j] is Player)
+                        return new[] { i, j };
+
+            return new[] { -1 };
         }
     }
 
@@ -174,12 +221,8 @@ namespace Digger
         {
             var command = new CreatureCommand();
 
-            var playerCoordinates = Monster.FindPlayerCoordinates();
-            if (playerCoordinates.Length == 1)
-                return command;
-            
-            var playerX = playerCoordinates[0];
-            var playerY = playerCoordinates[1];
+            var playerX = Player.X;
+            var playerY = Player.Y;
 
             if (playerX < x)
             {
@@ -225,20 +268,6 @@ namespace Digger
         string ICreature.GetImageFileName()
         {
             return "Monster.png";
-        }
-
-        static int[] FindPlayerCoordinates()
-        {
-            /// <summary>
-            /// Метод для поиска координаты игрока по всему полю
-            /// </summary>
-            /// <returns>Возвращает координаты игрока в формате массива интов [x, y], иначе возвращает {- 1}</returns>
-            for (var i = 0; i < Game.MapWidth; i++)
-                for (var j = 0; j < Game.MapHeight; j++)
-                    if (Game.Map[i, j] is Player)
-                        return new[] {i, j};
-
-            return new[] {-1};
         }
     }
 
