@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;  // Add this line to include the StringBuilder class
 
@@ -11,7 +10,7 @@ namespace StructBenchmarking
         public double MeasureDurationInMs(ITask task, int repetitionCount)
         {
             var stopwatch = new Stopwatch();
-            double totalDuration = 0;
+            var totalDuration = 0.0;
 
             // Add an extra "warming" call to the task
             task.Run();
@@ -29,7 +28,7 @@ namespace StructBenchmarking
             }
 
             // Subtract the time taken by the "warming" call to get the actual time taken by the task
-            return totalDuration - stopwatch.Elapsed.TotalMilliseconds;
+            return totalDuration / repetitionCount;
         }
     }
 
@@ -41,12 +40,12 @@ namespace StructBenchmarking
         {
             public void Run()
             {
-                StringBuilder sb = new StringBuilder();
+                var sb = new StringBuilder();
                 for (int i = 0; i < 10000; i++)
                 {
                     sb.Append('a');
                 }
-                string s = sb.ToString();
+                var s = sb.ToString();
             }
         }
 
@@ -54,7 +53,7 @@ namespace StructBenchmarking
         {
             public void Run()
             {
-                string s = new string('a', 10000);
+                var s = new string('a', 10000);
             }
         }
 
@@ -62,36 +61,13 @@ namespace StructBenchmarking
         public void StringConstructorFasterThanStringBuilder()
         {
             // Choose the number of repetitions so that the total time for the test is around 1 second
-            int repetitions = 1000;
+            var repetitions = 1000;
 
-            IBenchmark benchmark = new Benchmark();
-            double stringBuilderTime = benchmark.MeasureDurationInMs(new StringBuilderTask(), repetitions);
-            double stringConstructorTime = benchmark.MeasureDurationInMs(new StringConstructorTask(), repetitions);
+            var benchmark = new Benchmark();
+            var stringBuilderTime = benchmark.MeasureDurationInMs(new StringBuilderTask(), repetitions);
+            var stringConstructorTime = benchmark.MeasureDurationInMs(new StringConstructorTask(), repetitions);
 
             Assert.Less(stringConstructorTime, stringBuilderTime);
-        }
-
-        [Test]
-        public void MeasureTimeExceptWarmingCall(int repetitionsCount, int delay)
-        {
-            IBenchmark benchmark = new Benchmark();
-            double time = benchmark.MeasureDurationInMs(new DelayTask(delay), repetitionsCount);
-            Assert.AreEqual(delay * repetitionsCount, time, delay / 2.0);
-        }
-    }
-
-    public class DelayTask : ITask
-    {
-        private readonly int _delay;
-
-        public DelayTask(int delay)
-        {
-            _delay = delay;
-        }
-
-        public void Run()
-        {
-            System.Threading.Thread.Sleep(_delay);
         }
     }
 }

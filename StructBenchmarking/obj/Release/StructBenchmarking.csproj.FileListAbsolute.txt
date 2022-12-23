@@ -1,0 +1,14 @@
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.csproj.AssemblyReference.cache
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.Properties.Resources.resources
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.csproj.GenerateResource.cache
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.csproj.CoreCompileInputs.cache
+D:\IT\Univ\StructBenchmarking\bin\Release\StructBenchmarking.exe.config
+D:\IT\Univ\StructBenchmarking\bin\Release\StructBenchmarking.exe
+D:\IT\Univ\StructBenchmarking\bin\Release\StructBenchmarking.pdb
+D:\IT\Univ\StructBenchmarking\bin\Release\nunit.framework.dll
+D:\IT\Univ\StructBenchmarking\bin\Release\ZedGraph.dll
+D:\IT\Univ\StructBenchmarking\bin\Release\ZedGraph.xml
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.csproj.CopyComplete
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.exe
+D:\IT\Univ\StructBenchmarking\obj\Release\StructBenchmarking.pdb

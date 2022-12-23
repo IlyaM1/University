@@ -1,56 +1,62 @@
+using System;
 using System.Collections.Generic;
 
 namespace StructBenchmarking
 {
-    public class Experiments
+    public static class Experiments
     {
-        public ChartData BuildChartDataForArrayCreation()
+        public static ChartData BuildChartDataForArrayCreation(
+            IBenchmark benchmark, int repetitionsCount)
         {
-            // Create a list of ChartDataPoint objects to store the measurement results
-            var dataPoints = new List<ChartDataPoint>();
+            var classesTimes = new List<ExperimentResult>();
+            var structuresTimes = new List<ExperimentResult>();
 
-            // Iterate through all of the field counts
             foreach (var fieldCount in Constants.FieldCounts)
             {
-                // Measure the time taken to create an array of structs with the current field count
-                var structArrayCreationTask = new StructArrayCreationTask();
-                var structArrayCreationTime = Benchmark.Measure(() => structArrayCreationTask.Run(fieldCount));
+                structuresTimes.Add(MeasureTaskDuration(
+                    benchmark, repetitionsCount, fieldCount, typeof(StructArrayCreationTask)));
 
-                // Measure the time taken to create an array of classes with the current field count
-                var classArrayCreationTask = new ClassArrayCreationTask();
-                var classArrayCreationTime = Benchmark.Measure(() => classArrayCreationTask.Run(fieldCount));
-
-                // Add the measurement results to the list of data points
-                dataPoints.Add(new ChartDataPoint(fieldCount, structArrayCreationTime, classArrayCreationTime));
+                classesTimes.Add(MeasureTaskDuration(
+                    benchmark, repetitionsCount, fieldCount, typeof(ClassArrayCreationTask)));
             }
 
-            // Return the list of data points as a ChartData object
-            return new ChartData("Array Creation", dataPoints);
+            return new ChartData
+            {
+                Title = "Create array",
+                ClassPoints = classesTimes,
+                StructPoints = structuresTimes,
+            };
         }
 
-
-        public ChartData BuildChartDataForMethodCall()
+        public static ChartData BuildChartDataForMethodCall(
+            IBenchmark benchmark, int repetitionsCount)
         {
-            // Create a list of ChartDataPoint objects to store the measurement results
-            var dataPoints = new List<ChartDataPoint>();
+            var classesTimes = new List<ExperimentResult>();
+            var structuresTimes = new List<ExperimentResult>();
 
-            // Iterate through all of the argument counts
-            foreach (var argumentCount in Constants.ArgumentCounts)
+            foreach (var fieldCount in Constants.FieldCounts)
             {
-                // Measure the time taken to pass the current number of arguments to a method using a struct
-                var structMethodCallTask = new StructMethodCallTask();
-                var structMethodCallTime = Benchmark.Measure(() => structMethodCallTask.Run(argumentCount));
+                structuresTimes.Add(MeasureTaskDuration(
+                    benchmark, repetitionsCount, fieldCount, typeof(MethodCallWithStructArgumentTask)));
 
-                // Measure the time taken to pass the current number of arguments to a method using a class
-                var classMethodCallTask = new ClassMethodCallTask();
-                var classMethodCallTime = Benchmark.Measure(() => classMethodCallTask.Run(argumentCount));
-
-                // Add the measurement results to the list of data points
-                dataPoints.Add(new ChartDataPoint(argumentCount, structMethodCallTime, classMethodCallTime));
+                classesTimes.Add(MeasureTaskDuration(
+                    benchmark, repetitionsCount, fieldCount, typeof(MethodCallWithClassArgumentTask)));
             }
 
-            // Return the list of data
+            return new ChartData
+            {
+                Title = "Call method with argument",
+                ClassPoints = classesTimes,
+                StructPoints = structuresTimes,
+            };
+        }
 
+        private static ExperimentResult MeasureTaskDuration(
+            IBenchmark benchmark, int repetitionsCount, int fieldCount, Type taskType)
+        {
+            var task = Activator.CreateInstance(taskType, fieldCount) as ITask;
+            var duration = benchmark.MeasureDurationInMs(task, repetitionsCount);
+            return new ExperimentResult(fieldCount, duration);
         }
     }
 }
