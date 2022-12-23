@@ -49,6 +49,10 @@ S TTST  TG
  TGST MTTT
  T  TMTTTT";
 
+        private const string attackMap = @"
+P M
+";
+
         public static ICreature[,] Map;
         public static int Scores;
         public static bool IsOver;

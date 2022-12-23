@@ -1,0 +1,13 @@
+D:\IT\Univ\table-parser\bin\Debug\TableParser.exe.config
+D:\IT\Univ\table-parser\bin\Debug\TableParser.exe
+D:\IT\Univ\table-parser\bin\Debug\TableParser.pdb
+D:\IT\Univ\table-parser\bin\Debug\nunit.framework.dll
+D:\IT\Univ\table-parser\obj\Debug\table-parser.csproj.AssemblyReference.cache
+D:\IT\Univ\table-parser\obj\Debug\table-parser.csproj.SuggestedBindingRedirects.cache
+D:\IT\Univ\table-parser\obj\Debug\TableParser.ParserMainForm.resources
+D:\IT\Univ\table-parser\obj\Debug\TableParser.Properties.Resources.resources
+D:\IT\Univ\table-parser\obj\Debug\table-parser.csproj.GenerateResource.cache
+D:\IT\Univ\table-parser\obj\Debug\table-parser.csproj.CoreCompileInputs.cache
+D:\IT\Univ\table-parser\obj\Debug\table-parser.csproj.CopyComplete
+D:\IT\Univ\table-parser\obj\Debug\TableParser.exe
+D:\IT\Univ\table-parser\obj\Debug\TableParser.pdb

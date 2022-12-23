@@ -19,57 +19,14 @@ namespace Digger
         public static int X;
         public static int Y;
 
-        public Player()
-        {
-            if (!(Game.Map is null))
-            {
-                var coordinates = FindPlayerCoordinates();
-                X = coordinates[0];
-                Y = coordinates[1];
-            }
-        }
-
         CreatureCommand ICreature.Act(int x, int y)
         {
+            X = x;
+            Y = y;
             var command = new CreatureCommand();
 
-            var pressedKey = Game.KeyPressed;
-            if (pressedKey == Keys.Up && y - 1 >= 0)
-            {
-                if (!GameCheckers.IsCreatureInCell(x, y - 1, CreaturesNames.Sack))
-                {
-                    command.DeltaY -= 1;
-                    Y -= 1;
-                }
-            }
-            
-            if (pressedKey == Keys.Down && y + 1 < Game.MapHeight)
-            {
-                if (!GameCheckers.IsCreatureInCell(x, y + 1, CreaturesNames.Sack))
-                {
-                    command.DeltaY += 1;
-                    Y += 1;
-                }
-            }  
+            command = MoveOnKeyPressed(command, x, y);
 
-            if (pressedKey == Keys.Right && x + 1 < Game.MapWidth)
-            {
-                if (!GameCheckers.IsCreatureInCell(x + 1, y, CreaturesNames.Sack))
-                {
-                    command.DeltaX += 1;
-                    X += 1;
-                }
-            }
-
-            if (pressedKey == Keys.Left && x - 1 >= 0)
-            {
-                if (!GameCheckers.IsCreatureInCell(x - 1, y, CreaturesNames.Sack))
-                {
-                    command.DeltaX -= 1;
-                    X -= 1;
-                }
-            }
-                
             return command;
         }
 
@@ -94,7 +51,7 @@ namespace Digger
             return "Digger.png";
         }
 
-        private static int[] FindPlayerCoordinates()
+        static int[] FindPlayerCoordinates()
         {
             /// <summary>
             /// Метод для поиска координаты игрока по всему полю
@@ -106,6 +63,45 @@ namespace Digger
                         return new[] { i, j };
 
             return new[] { -1 };
+        }
+
+        private CreatureCommand MoveOnKeyPressed(CreatureCommand command, int x, int y)
+        {
+            var pressedKey = Game.KeyPressed;
+            if (pressedKey == Keys.Up && y - 1 >= 0)
+            {
+                if (!GameCheckers.IsCreatureInCell(x, y - 1, CreaturesNames.Sack))
+                {
+                    Y -= 1;
+                    command.DeltaY -= 1;
+                }
+            }
+            if (pressedKey == Keys.Down && y + 1 < Game.MapHeight)
+            {
+                if (!GameCheckers.IsCreatureInCell(x, y + 1, CreaturesNames.Sack))
+                {
+                    Y += 1;
+                    command.DeltaY += 1;
+                }
+            }
+            if (pressedKey == Keys.Right && x + 1 < Game.MapWidth)
+            {
+                if (!GameCheckers.IsCreatureInCell(x + 1, y, CreaturesNames.Sack))
+                {
+                    X += 1;
+                    command.DeltaX += 1;
+                }
+            }
+            if (pressedKey == Keys.Left && x - 1 >= 0)
+            {
+                if (!GameCheckers.IsCreatureInCell(x - 1, y, CreaturesNames.Sack))
+                {
+                    X -= 1;
+                    command.DeltaX -= 1;
+                }
+            }
+
+            return command;
         }
     }
 
@@ -139,11 +135,11 @@ namespace Digger
         CreatureCommand ICreature.Act(int x, int y)
         {
             var command = new CreatureCommand();
-            
+
             if (y < Game.MapHeight - 1)
             {
-                if (Game.Map[x, y + 1] is null 
-                    || (GameCheckers.IsCreatureFromListInCell(x, y + 1, new Type[] {CreaturesNames.Player, CreaturesNames.Monster}) 
+                if (Game.Map[x, y + 1] is null
+                    || (GameCheckers.IsCreatureFromListInCell(x, y + 1, new Type[] { CreaturesNames.Player, CreaturesNames.Monster })
                                 && FallDistance >= 1))
                 {
                     command.DeltaY += 1;
@@ -161,7 +157,7 @@ namespace Digger
             {
                 if (FallDistance >= 2)
                     command.TransformTo = new Gold();
-                
+
                 FallDistance = 0;
             }
 
@@ -221,29 +217,13 @@ namespace Digger
         {
             var command = new CreatureCommand();
 
+            if (Game.IsOver)
+                return command;
+
             var playerX = Player.X;
             var playerY = Player.Y;
 
-            if (playerX < x)
-            {
-                if (!GameCheckers.IsCreatureFromListInCell(x - 1, y, new Type[] {CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster}))
-                    command.DeltaX -= 1;
-            }
-            else if (playerX > x)
-            {
-                if (!GameCheckers.IsCreatureFromListInCell(x + 1, y, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
-                    command.DeltaX += 1;
-            }  
-            else if (playerY < y)
-            {
-                if (!GameCheckers.IsCreatureFromListInCell(x, y - 1, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
-                    command.DeltaY -= 1;
-            }
-            else if (playerY > y)
-            {
-                if (!GameCheckers.IsCreatureFromListInCell(x, y + 1, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
-                    command.DeltaY += 1;
-            }
+            command = MoveInPlayerDirection(command, playerX, playerY, x, y);
 
             return command;
         }
@@ -268,6 +248,32 @@ namespace Digger
         string ICreature.GetImageFileName()
         {
             return "Monster.png";
+        }
+
+        private CreatureCommand MoveInPlayerDirection(CreatureCommand command, int playerX, int playerY, int x, int y)
+        {
+            if (playerX < x)
+            {
+                if (!GameCheckers.IsCreatureFromListInCell(x - 1, y, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
+                    command.DeltaX -= 1;
+            }
+            else if (playerX > x)
+            {
+                if (!GameCheckers.IsCreatureFromListInCell(x + 1, y, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
+                    command.DeltaX += 1;
+            }
+            else if (playerY < y)
+            {
+                if (!GameCheckers.IsCreatureFromListInCell(x, y - 1, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
+                    command.DeltaY -= 1;
+            }
+            else if (playerY > y)
+            {
+                if (!GameCheckers.IsCreatureFromListInCell(x, y + 1, new Type[] { CreaturesNames.Terrain, CreaturesNames.Sack, CreaturesNames.Monster }))
+                    command.DeltaY += 1;
+            }
+
+            return command;
         }
     }
 

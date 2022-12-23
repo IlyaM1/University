@@ -1,34 +1,53 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 
+public class Solution
+{
+    static public int[] PlusOne(int[] digits)
+    {
+        if (digits.Length == 1 && digits[0] == 9)
+            return new int[] { 1, 0 };
+
+        if (digits[digits.Length - 1] != 9)
+        {
+            digits[digits.Length - 1] += 1;
+            return digits;
+        }
+
+        digits[digits.Length - 1] = 0;
+        var i = digits.Length - 2;
+        while (digits[i] == 9 && i != 0)
+        {
+            digits[i] = 0;
+            i--;
+        }
+        if (i == 0)
+        {
+            if (digits[0] != 9)
+            {
+                digits[0] += 1;
+                return digits;
+            }
+
+            digits[i] = 0;
+            var smt = new List<int>(digits);
+            smt.Insert(0, 1);
+            return smt.ToArray();
+        }
+        digits[i] += 1;
+        return digits;
+    }
+}
 
 class HelloWorld
 {
-    static int FindIndexByBinarySearch2(int[] array, int value, int left, int right)
-    {
-        if (value >= array[array.Length - 1])
-            return -1;
-
-        while (left + 1 != right)
-        {
-            var middle = (right + left) / 2;
-            if (value < array[middle])
-                right = middle;
-            else left = middle + 1;
-        }
-
-        if (array[left] > value)
-            return left;
-        return -1;
-    }
-
     static void Main()
     {
-        var array = new int[] { 1, 2, 3, 4, 5 };
-        var smt = FindIndexByBinarySearch2(array, 5, -1, array.Length);
-        Console.WriteLine(smt);
+        var ints = new int[] { 8, 9, 9, 9 };
+        Console.WriteLine(Solution.PlusOne(ints)[0]);
     }
 }
